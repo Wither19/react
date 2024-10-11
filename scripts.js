@@ -39,7 +39,7 @@ function CoolHeading(props) {
 			<div
 				className={props.smooth ? headingStyle.blurb[0] : headingStyle.blurb[1]}
 				style={{ opacity: headingSize ? "1" : "0" }}>
-				<BlurbTag>{blurbText}</BlurbTag>
+				{React.createElement(BlurbTag, null, blurbText)}
 			</div>
 		</div>
 	);
