@@ -15,13 +15,9 @@ function CoolHeading(props) {
 		blurb: ["blurb transition-header", "blurb"],
 	};
 
-	var BlurbTag = () => {
-		props.blurbTag ? props.blurbTag : "p";
-	};
+	var BlurbTag = props.blurbTag ? props.blurbTag : "p";
 
-	var blurbText = () => {
-		props.blurb ? props.blurb : "How tough are ya";
-	};
+	var blurbText = props.blurb ? props.blurb : "How tough are ya";
 
 	return (
 		<div
