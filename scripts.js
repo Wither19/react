@@ -8,8 +8,19 @@ function CoolHeading(props) {
 	const [headingSize, setHeading] = useState(false);
 
 	const headingStyle = {
-		flex: ["d-flex flex-row justify-content-center transition-header", "d-flex flex-row justify-content-center"],
+		flex: [
+			"d-flex flex-row justify-content-center transition-header",
+			"d-flex flex-row justify-content-center",
+		],
 		blurb: ["blurb transition-header", "blurb"],
+	};
+
+	var BlurbTag = () => {
+		props.blurbTag ? props.blurbTag : "p";
+	};
+
+	var blurbText = () => {
+		props.blurb ? props.blurb : "How tough are ya";
 	};
 
 	return (
@@ -18,7 +29,8 @@ function CoolHeading(props) {
 				setHeading((headingSize) => !headingSize);
 			}}
 			className="non-select">
-			<div className={props.smooth ? headingStyle.flex[0] : headingStyle.flex[1]}>
+			<div
+				className={props.smooth ? headingStyle.flex[0] : headingStyle.flex[1]}>
 				<div className={headingSize ? bigAndBold : smol}>
 					{props.text ? props.text : "Welcome to the landing page"}
 				</div>
@@ -27,11 +39,7 @@ function CoolHeading(props) {
 			<div
 				className={props.smooth ? headingStyle.blurb[0] : headingStyle.blurb[1]}
 				style={{ opacity: headingSize ? "1" : "0" }}>
-				{React.createElement(
-					props.blurbTag ? props.blurbTag : "p",
-					null,
-					props.blurb ? props.blurb : "How tough are ya"
-				)}
+				<BlurbTag>{blurbText}</BlurbTag>
 			</div>
 		</div>
 	);
@@ -91,7 +99,9 @@ function BibleApiRef() {
 				</sub>
 				<h2 className="move-up">{fetchedVerse.reference}</h2>
 				<div className="bible-verse">{fetchedVerse.text}</div>
-				<a target="_blank" href={`https://biblegateway.com/passage/?search=${fetchedVerse.reference}`}>
+				<a
+					target="_blank"
+					href={`https://biblegateway.com/passage/?search=${fetchedVerse.reference}`}>
 					{fetchedVerse.reference} on BibleGateway
 				</a>
 			</div>
@@ -99,7 +109,10 @@ function BibleApiRef() {
 				<input id="bible-verse-selection" type="text" onKeyDown={grabVerse} />
 			</div>
 			<div className="d-flex flex-row justify-content-center">
-				<button id="verse-select" className="bible-verse-select-button" onClick={grabVerse}>
+				<button
+					id="verse-select"
+					className="bible-verse-select-button"
+					onClick={grabVerse}>
 					Go to Verse
 				</button>
 			</div>
