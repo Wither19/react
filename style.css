@@ -56,9 +56,19 @@ h2 {
 	font-size: 1.15rem;
 }
 
+#bible-buttons {
+	width: 33%;
+	margin: 0px auto;
+}
+
 #bible-verse-selection,
 .bible-verse-select-button,
 .move-up {
-	margin-top: 20px;
+	margin: 30px 0px;
 	text-align: center;
+}
+
+.verse-number {
+	margin: 4px;
+	font-size: 1.75rem;
 }
