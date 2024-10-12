@@ -1,1 +1,1 @@
-createRoot(document.getElementById("root")).render(<App />);
+React.createRoot(document.getElementById("root")).render(<App />);
