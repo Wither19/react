@@ -145,7 +145,7 @@ function WholeBunchaLineBreaks(props) {
 		lineBreaks.push(<br key={b} />);
 	}
 
-	return lineBreaks;
+	return <>{lineBreaks}</>;
 }
 
 function MeApp() {
