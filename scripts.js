@@ -8,7 +8,10 @@ function CoolHeading(props) {
 	const [headingSize, setHeading] = useState(false);
 
 	const headingStyle = {
-		flex: ["d-flex flex-row justify-content-center transition-header", "d-flex flex-row justify-content-center"],
+		flex: [
+			"d-flex flex-row justify-content-center transition-header",
+			"d-flex flex-row justify-content-center",
+		],
 		blurb: ["blurb transition-header", "blurb"],
 	};
 
@@ -22,11 +25,16 @@ function CoolHeading(props) {
 				setHeading((headingSize) => !headingSize);
 			}}
 			className="non-select">
-			<div className={props.smooth ? headingStyle.flex[0] : headingStyle.flex[1]}>
-				<div className={headingSize ? bigAndBold : smol}>{props.text ? props.text : "Welcome to the landing page"}</div>
+			<div
+				className={props.smooth ? headingStyle.flex[0] : headingStyle.flex[1]}>
+				<div className={headingSize ? bigAndBold : smol}>
+					{props.text ? props.text : "Welcome to the landing page"}
+				</div>
 			</div>
 			<br />
-			<div className={props.smooth ? headingStyle.blurb[0] : headingStyle.blurb[1]} style={{ opacity: headingSize ? "1" : "0" }}>
+			<div
+				className={props.smooth ? headingStyle.blurb[0] : headingStyle.blurb[1]}
+				style={{ opacity: headingSize ? "1" : "0" }}>
 				<BlurbTag>{blurbText}</BlurbTag>
 			</div>
 		</div>
@@ -102,18 +110,28 @@ function BibleApiRef() {
 						  ))
 						: null}
 				</div>
-				<a target="_blank" href={`https://biblegateway.com/passage/?search=${fetchedVerse.reference}`}>
+				<a
+					target="_blank"
+					href={`https://biblegateway.com/passage/?search=${fetchedVerse.reference}`}>
 					{fetchedVerse.reference} on BibleGateway
 				</a>
 			</div>
 			<div className="d-flex flex-row justify-content-center">
 				<input id="bible-verse-selection" type="text" onKeyDown={grabVerse} />
 			</div>
-			<div id="bible-buttons" className="d-flex flex-row justify-content-evenly">
-				<button id="verse-select" className="bible-verse-select-button" onClick={grabVerse}>
+			<div
+				id="bible-buttons"
+				className="d-flex flex-row justify-content-evenly">
+				<button
+					id="verse-select"
+					className="bible-verse-select-button"
+					onClick={grabVerse}>
 					Go to Verse
 				</button>
-				<button id="verse-random" className="bible-verse-select-button" onClick={grabVerse}>
+				<button
+					id="verse-random"
+					className="bible-verse-select-button"
+					onClick={grabVerse}>
 					Get a Random Verse
 				</button>
 			</div>
@@ -121,8 +139,9 @@ function BibleApiRef() {
 	);
 }
 function WholeBunchaLineBreaks(props) {
+	const getBreaksAmount = props.breaks ? props.breaks : 1;
 	const lineBreaks = [];
-	for (let b = 0; b < props.breaks; b++) {
+	for (let b = 0; b < getBreaksAmount; b++) {
 		lineBreaks.push(<br key={b} />);
 	}
 
@@ -134,7 +153,7 @@ function MeApp() {
 		<>
 			<CoolHeading smooth={true} />
 			<SiteList />
-			<WholeBunchaLineBreaks breaks={4} />
+			<WholeBunchaLineBreaks breaks={10} />
 			<BibleApiRef />
 		</>
 	);
