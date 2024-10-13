@@ -3,7 +3,7 @@
 	user-select: none;
 }
 
-.transition-header > div:nth-child(1) {
+.transition-header>div:nth-child(1) {
 	transition: 300ms ease-in-out;
 }
 
@@ -70,5 +70,6 @@ h2 {
 
 .verse-number {
 	margin: 4px;
-	font-size: 1.75rem;
+	font-size: 1.5rem;
+	vertical-align: super;
 }
