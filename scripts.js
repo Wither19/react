@@ -140,7 +140,7 @@ function BibleApiRef() {
 }
 function WholeBunchaLineBreaks(props) {
 	const breaks = () => {
-		if (typeof props.breaks != number) {
+		if (typeof props.breaks != "number") {
 			return Number(props.breaks);
 		} else {
 			return props.breaks;
