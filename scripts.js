@@ -139,13 +139,6 @@ function BibleApiRef() {
 	);
 }
 function WholeBunchaLineBreaks(props) {
-	const breaks = () => {
-		if (typeof props.breaks != "number") {
-			return Number(props.breaks);
-		} else {
-			return props.breaks;
-		}
-	};
 	const getBreaksAmount = props.breaks ? breaks : 1;
 	const lineBreaks = [];
 	for (let b = 0; b < getBreaksAmount; b++) {
@@ -160,7 +153,7 @@ function MeApp() {
 		<>
 			<CoolHeading smooth={true} />
 			<SiteList />
-			<WholeBunchaLineBreaks breaks="3" />
+			<WholeBunchaLineBreaks breaks={3} />
 			<BibleApiRef />
 		</>
 	);
