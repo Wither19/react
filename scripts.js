@@ -139,9 +139,8 @@ function BibleApiRef() {
 	);
 }
 function WholeBunchaLineBreaks(props) {
-	const getBreaksAmount = props.breaks ? breaks : 1;
 	const lineBreaks = [];
-	for (let b = 0; b < getBreaksAmount; b++) {
+	for (let b = 0; b < props.breaks; b++) {
 		lineBreaks.push(<br key={b} />);
 	}
 
